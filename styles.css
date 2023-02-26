@@ -147,12 +147,13 @@ nav a{
 }
 
 .active{
-  text-decoration: underline var(--light-green);
-  text-decoration-thickness: 3px;
+  text-decoration: underline var(--white);
+  text-decoration-thickness: 2px;
 }
 
 p{
   margin: 0 auto;
+  font: var(--body-font);
 }
 
 #homeMain p{
@@ -167,7 +168,7 @@ p{
   background-color: var(--med-green);
 }
 
-#aboutPlants p, #aboutPlants h3, #contactUs p, #contactUs h3{
+#aboutPlants p, #aboutPlants h3, #contactUs p, #contactUs h3, footer p{
   color: var(--white);
   padding: 1rem;
 }
@@ -224,17 +225,36 @@ footer address{
   padding: 0.25rem;
 }
 
+footer {
+  margin-top: 1rem;
+}
+
 footer div {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "socialMedia"
+    "location"
+    "disclaimer";
 }
 
 #socialMedia {
-    grid-template-rows: 1 / 1;
-    margin-top: 0;
+  grid-area: socialMedia;
+}
 
-  }
+section:first-of-type {
+  grid-area: location;
+}
+
+div p {
+  grid-area: disclaimer;
+}
+
+footer div p {
+  font-family: var(--body-font);
+  max-width: 230px;
+  margin-top: 30px;
+  text-align: center;
+}
 
 
 /* ------------------------MOBILE STYLES--------------------- */
@@ -305,6 +325,33 @@ header img{
   nav{
     grid-column: 1/-1;
   }
+
+  footer div {
+    display: grid;
+    grid-template-areas:
+      "socialMedia"
+      "location"
+      "disclaimer";
+  }
+  
+  #socialMedia {
+    grid-area: socialMedia;
+  }
+  
+  section:first-of-type {
+    grid-area: location;
+  }
+  
+  div p {
+    grid-area: disclaimer;
+  }
+  
+    footer div p {
+      font-family: var(--body-font);
+      max-width: 230px;
+      margin-top: 30px;
+      text-align: center;
+  }
 }
 
 @media screen and (min-width: 600px){
@@ -340,10 +387,37 @@ header img{
   #contactUs p{
     grid-row: 2/3;
   }
+
+  footer div {
+    display: grid;
+    grid-template-areas:
+      "socialMedia"
+      "location"
+      "disclaimer";
+  }
+  
+  #socialMedia {
+    grid-area: socialMedia;
+  }
+  
+  section:first-of-type {
+    grid-area: location;
+  }
+  
+  div p {
+    grid-area: disclaimer;
+  }
+  
+    footer div p {
+      font-family: var(--body-font);
+      max-width: 230px;
+      margin-top: 30px;
+      text-align: center;
+  }
 }
 
 /* -----------------------MED SCREEN STYLES-------------------- */
-@media screen and (min-width: 700px){
+@media screen and (min-width: 700px) and (max-width: 949px){
   footer div{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -352,6 +426,36 @@ header img{
     max-width: 700px;
     margin: 0 auto;
   }
+
+  header{
+    grid-template-columns: 1fr 2fr 3fr;
+  }
+  
+  nav{
+    grid-column: 3/-1;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  #aboutPlants {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: red;
+    width: 100%;
+    grid-template-areas:
+      "img"
+      "paragraph";
+    height: 300px;
+    width: 300px;
+  }
+
+  #aboutPlants img{
+    grid-area: img;
+    height: 300px;
+}
+
+#aboutPlants padding{
+  grid-area: paragraph;
 }
 
 /* -----------------------LARGE SCREEN STYLES-------------------- */
